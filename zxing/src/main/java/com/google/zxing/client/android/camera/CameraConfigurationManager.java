@@ -142,6 +142,9 @@ final class CameraConfigurationManager {
 
 
     Camera theCamera = camera.getCamera();
+    //竖屏
+    // 这里设置成90度
+    theCamera.setDisplayOrientation(90);
     Camera.Parameters parameters = theCamera.getParameters();
 
     if (parameters == null) {

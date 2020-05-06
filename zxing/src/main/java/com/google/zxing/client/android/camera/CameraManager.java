@@ -23,6 +23,7 @@ import android.hardware.Camera;
 import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceHolder;
+
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.client.android.camera.open.OpenCamera;
 import com.google.zxing.client.android.camera.open.OpenCameraInterface;
@@ -163,6 +164,14 @@ public final class CameraManager {
       camera.getCamera().stopPreview();
       previewCallback.setHandler(null, 0);
       previewing = false;
+    }
+  }
+
+  public Camera getCamera() {
+    if (camera != null) {
+      return camera.getCamera();
+    } else {
+      return null;
     }
   }
 

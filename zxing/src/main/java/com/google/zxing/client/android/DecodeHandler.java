@@ -24,13 +24,12 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
-import com.google.zxing.client.android.camera.CameraManager;
+import com.google.zxing.ResultPoint;
 import com.google.zxing.common.GlobalHistogramBinarizer;
 import com.google.zxing.common.HybridBinarizer;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
@@ -44,7 +43,6 @@ final class DecodeHandler extends Handler {
 
     private final CaptureActivity activity;
     private final MultiFormatReader multiFormatReader;
-    private boolean running = true;
 
     DecodeHandler(CaptureActivity activity, Map<DecodeHintType, Object> hints) {
         multiFormatReader = new MultiFormatReader();
@@ -54,15 +52,16 @@ final class DecodeHandler extends Handler {
 
     @Override
     public void handleMessage(Message message) {
-        if (message == null || !running) {
-            return;
-        }
+//        if (message == null || !running) {
+//            return;
+//        }
         if (message.what == R.id.decode) {
             decode((byte[]) message.obj, message.arg1, message.arg2);
-        } else if (message.what == R.id.quit) {
-            running = false;
-            Looper.myLooper().quit();
         }
+//        else if (message.what == R.id.quit) {
+//            running = false;
+//            Looper.myLooper().quit();
+//        }
     }
 
     /**

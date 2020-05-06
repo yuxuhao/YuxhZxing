@@ -167,12 +167,13 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     lastResult = null;
 
     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-
-    if (prefs.getBoolean(PreferencesActivity.KEY_DISABLE_AUTO_ORIENTATION, true)) {
-      setRequestedOrientation(getCurrentOrientation());
-    } else {
-      setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-    }
+//减少编码解析格式
+//    if (prefs.getBoolean(PreferencesActivity.KEY_DISABLE_AUTO_ORIENTATION, true)) {
+//      setRequestedOrientation(getCurrentOrientation());
+//    } else {
+//      setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+//    }
+    setRequestedOrientation(getCurrentOrientation());
 
     resetStatusView();
 
@@ -195,58 +196,58 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
     if (intent != null) {
 
-      String action = intent.getAction();
-      String dataString = intent.getDataString();
-
-      if (Intents.Scan.ACTION.equals(action)) {
-
-        // Scan the formats the intent requested, and return the result to the calling activity.
-        source = IntentSource.NATIVE_APP_INTENT;
-        decodeFormats = DecodeFormatManager.parseDecodeFormats(intent);
-        decodeHints = DecodeHintManager.parseDecodeHints(intent);
-
-        if (intent.hasExtra(Intents.Scan.WIDTH) && intent.hasExtra(Intents.Scan.HEIGHT)) {
-          int width = intent.getIntExtra(Intents.Scan.WIDTH, 0);
-          int height = intent.getIntExtra(Intents.Scan.HEIGHT, 0);
-          if (width > 0 && height > 0) {
-            cameraManager.setManualFramingRect(width, height);
-          }
-        }
-
-        if (intent.hasExtra(Intents.Scan.CAMERA_ID)) {
-          int cameraId = intent.getIntExtra(Intents.Scan.CAMERA_ID, -1);
-          if (cameraId >= 0) {
-            cameraManager.setManualCameraId(cameraId);
-          }
-        }
-        
-        String customPromptMessage = intent.getStringExtra(Intents.Scan.PROMPT_MESSAGE);
-        if (customPromptMessage != null) {
-          statusView.setText(customPromptMessage);
-        }
-
-      } else if (dataString != null &&
-                 dataString.contains("http://www.google") &&
-                 dataString.contains("/m/products/scan")) {
-
-        // Scan only products and send the result to mobile Product Search.
-        source = IntentSource.PRODUCT_SEARCH_LINK;
-        sourceUrl = dataString;
-        decodeFormats = DecodeFormatManager.PRODUCT_FORMATS;
-
-      } else if (isZXingURL(dataString)) {
-
-        // Scan formats requested in query string (all formats if none specified).
-        // If a return URL is specified, send the results there. Otherwise, handle it ourselves.
-        source = IntentSource.ZXING_LINK;
-        sourceUrl = dataString;
-        Uri inputUri = Uri.parse(dataString);
-        scanFromWebPageManager = new ScanFromWebPageManager(inputUri);
-        decodeFormats = DecodeFormatManager.parseDecodeFormats(inputUri);
-        // Allow a sub-set of the hints to be specified by the caller.
-        decodeHints = DecodeHintManager.parseDecodeHints(inputUri);
-
-      }
+//      String action = intent.getAction();
+//      String dataString = intent.getDataString();
+//
+//      if (Intents.Scan.ACTION.equals(action)) {
+//
+//        // Scan the formats the intent requested, and return the result to the calling activity.
+//        source = IntentSource.NATIVE_APP_INTENT;
+//        decodeFormats = DecodeFormatManager.parseDecodeFormats(intent);
+//        decodeHints = DecodeHintManager.parseDecodeHints(intent);
+//
+//        if (intent.hasExtra(Intents.Scan.WIDTH) && intent.hasExtra(Intents.Scan.HEIGHT)) {
+//          int width = intent.getIntExtra(Intents.Scan.WIDTH, 0);
+//          int height = intent.getIntExtra(Intents.Scan.HEIGHT, 0);
+//          if (width > 0 && height > 0) {
+//            cameraManager.setManualFramingRect(width, height);
+//          }
+//        }
+//
+//        if (intent.hasExtra(Intents.Scan.CAMERA_ID)) {
+//          int cameraId = intent.getIntExtra(Intents.Scan.CAMERA_ID, -1);
+//          if (cameraId >= 0) {
+//            cameraManager.setManualCameraId(cameraId);
+//          }
+//        }
+//
+//        String customPromptMessage = intent.getStringExtra(Intents.Scan.PROMPT_MESSAGE);
+//        if (customPromptMessage != null) {
+//          statusView.setText(customPromptMessage);
+//        }
+//
+//      } else if (dataString != null &&
+//                 dataString.contains("http://www.google") &&
+//                 dataString.contains("/m/products/scan")) {
+//
+//        // Scan only products and send the result to mobile Product Search.
+//        source = IntentSource.PRODUCT_SEARCH_LINK;
+//        sourceUrl = dataString;
+//        decodeFormats = DecodeFormatManager.PRODUCT_FORMATS;
+//
+//      } else if (isZXingURL(dataString)) {
+//
+//        // Scan formats requested in query string (all formats if none specified).
+//        // If a return URL is specified, send the results there. Otherwise, handle it ourselves.
+//        source = IntentSource.ZXING_LINK;
+//        sourceUrl = dataString;
+//        Uri inputUri = Uri.parse(dataString);
+//        scanFromWebPageManager = new ScanFromWebPageManager(inputUri);
+//        decodeFormats = DecodeFormatManager.parseDecodeFormats(inputUri);
+//        // Allow a sub-set of the hints to be specified by the caller.
+//        decodeHints = DecodeHintManager.parseDecodeHints(inputUri);
+//
+//      }
 
       characterSet = intent.getStringExtra(Intents.Scan.CHARACTER_SET);
 

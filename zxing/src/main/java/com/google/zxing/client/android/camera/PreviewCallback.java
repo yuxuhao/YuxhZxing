@@ -22,6 +22,13 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
+import com.google.zxing.client.android.ParallelProcessingTask;
+import com.google.zxing.client.android.R;
+
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 @SuppressWarnings("deprecation") // camera APIs
 final class PreviewCallback implements Camera.PreviewCallback {
 
@@ -41,17 +48,32 @@ final class PreviewCallback implements Camera.PreviewCallback {
   }
 
   @Override
-  public void onPreviewFrame(byte[] data, Camera camera) {
-    Point cameraResolution = configManager.getCameraResolution();
-    Handler thePreviewHandler = previewHandler;
-    if (cameraResolution != null && thePreviewHandler != null) {
-      Message message = thePreviewHandler.obtainMessage(previewMessage, cameraResolution.x,
-          cameraResolution.y, data);
-      message.sendToTarget();
-      previewHandler = null;
-    } else {
-      Log.d(TAG, "Got preview callback, but no handler or resolution available");
-    }
+  public void onPreviewFrame(final byte[] data, Camera camera) {
+    final Point cameraResolution = configManager.getCameraResolution();
+    final Handler thePreviewHandler = previewHandler;
+//    if (cameraResolution != null && thePreviewHandler != null) {
+//      Message message = thePreviewHandler.obtainMessage(previewMessage, cameraResolution.x,
+//          cameraResolution.y, data);
+//      message.sendToTarget();
+//      previewHandler = null;
+//    } else {
+//      Log.d(TAG, "Got preview callback, but no handler or resolution available");
+//    }
+
+    //串行改为并行
+    ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(10, 10, 0l,
+            TimeUnit.MILLISECONDS, new LinkedBlockingDeque<Runnable>());
+    threadPoolExecutor.execute(new Runnable() {
+      @Override
+      public void run() {
+        if (cameraResolution != null && thePreviewHandler != null) {
+          Message message = thePreviewHandler.obtainMessage(previewMessage, cameraResolution.x,
+                  cameraResolution.y, data);
+          message.sendToTarget();
+          previewHandler = null;
+        }
+      }
+    });
   }
 
 }
