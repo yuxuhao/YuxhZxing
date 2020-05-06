@@ -25,9 +25,10 @@ import android.widget.Toast;
 
 import com.google.zxing.client.android.CaptureActivity;
 import com.google.zxing.client.android.R;
+import com.google.zxing.client.android.core.client.result.ParsedResult;
+import com.google.zxing.client.android.core.client.result.WifiParsedResult;
 import com.google.zxing.client.android.wifi.WifiConfigManager;
-import com.google.zxing.client.result.ParsedResult;
-import com.google.zxing.client.result.WifiParsedResult;
+
 
 /**
  * Handles wifi access information.

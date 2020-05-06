@@ -16,10 +16,10 @@
 
 package com.google.zxing.client.android.history;
 
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.Result;
 import com.google.zxing.client.android.Intents;
 import com.google.zxing.client.android.PreferencesActivity;
+import com.google.zxing.client.android.core.BarcodeFormat;
+import com.google.zxing.client.android.core.Result;
 import com.google.zxing.client.android.result.ResultHandler;
 
 import android.app.Activity;

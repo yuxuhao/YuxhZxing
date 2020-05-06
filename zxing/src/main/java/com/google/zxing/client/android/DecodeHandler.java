@@ -18,20 +18,25 @@ package com.google.zxing.client.android;
 
 import android.graphics.Bitmap;
 
-import com.google.zxing.BinaryBitmap;
-import com.google.zxing.DecodeHintType;
-import com.google.zxing.MultiFormatReader;
-import com.google.zxing.PlanarYUVLuminanceSource;
-import com.google.zxing.ReaderException;
-import com.google.zxing.Result;
-import com.google.zxing.ResultPoint;
-import com.google.zxing.common.GlobalHistogramBinarizer;
-import com.google.zxing.common.HybridBinarizer;
 
+import android.graphics.Rect;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+
+import com.google.zxing.client.android.camera.CameraManager;
+import com.google.zxing.client.android.core.BinaryBitmap;
+import com.google.zxing.client.android.core.DecodeHintType;
+import com.google.zxing.client.android.core.MultiFormatReader;
+import com.google.zxing.client.android.core.PlanarYUVLuminanceSource;
+import com.google.zxing.client.android.core.ReaderException;
+import com.google.zxing.client.android.core.Result;
+import com.google.zxing.client.android.core.ResultPoint;
+import com.google.zxing.client.android.core.common.GlobalHistogramBinarizer;
+import com.google.zxing.client.android.core.common.HybridBinarizer;
+import com.google.zxing.client.android.core.qrcode.QRCodeReader;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
@@ -43,6 +48,7 @@ final class DecodeHandler extends Handler {
 
     private final CaptureActivity activity;
     private final MultiFormatReader multiFormatReader;
+
 
     DecodeHandler(CaptureActivity activity, Map<DecodeHintType, Object> hints) {
         multiFormatReader = new MultiFormatReader();

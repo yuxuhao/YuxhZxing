@@ -32,11 +32,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.RejectedExecutionException;
 
+import com.google.zxing.client.android.core.client.result.ISBNParsedResult;
+import com.google.zxing.client.android.core.client.result.ParsedResult;
+import com.google.zxing.client.android.core.client.result.ProductParsedResult;
+import com.google.zxing.client.android.core.client.result.URIParsedResult;
 import com.google.zxing.client.android.history.HistoryManager;
-import com.google.zxing.client.result.ISBNParsedResult;
-import com.google.zxing.client.result.ParsedResult;
-import com.google.zxing.client.result.ProductParsedResult;
-import com.google.zxing.client.result.URIParsedResult;
+
 
 /**
  * Superclass of implementations which can asynchronously retrieve more information

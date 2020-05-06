@@ -16,7 +16,8 @@
 
 package com.google.zxing.client.android.history;
 
-import com.google.zxing.Result;
+
+import com.google.zxing.client.android.core.Result;
 
 /**
  * Represents one item in the scan history.

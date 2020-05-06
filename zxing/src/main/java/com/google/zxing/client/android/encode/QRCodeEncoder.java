@@ -16,18 +16,20 @@
 
 package com.google.zxing.client.android.encode;
 
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.Result;
-import com.google.zxing.WriterException;
+
 import com.google.zxing.client.android.Contents;
 import com.google.zxing.client.android.Intents;
 import com.google.zxing.client.android.R;
-import com.google.zxing.client.result.AddressBookParsedResult;
-import com.google.zxing.client.result.ParsedResult;
-import com.google.zxing.client.result.ResultParser;
-import com.google.zxing.common.BitMatrix;
+import com.google.zxing.client.android.core.BarcodeFormat;
+import com.google.zxing.client.android.core.EncodeHintType;
+import com.google.zxing.client.android.core.MultiFormatWriter;
+import com.google.zxing.client.android.core.Result;
+import com.google.zxing.client.android.core.WriterException;
+import com.google.zxing.client.android.core.client.result.AddressBookParsedResult;
+import com.google.zxing.client.android.core.client.result.ParsedResult;
+import com.google.zxing.client.android.core.client.result.ResultParser;
+import com.google.zxing.client.android.core.common.BitMatrix;
+
 
 import android.content.Context;
 import android.content.Intent;

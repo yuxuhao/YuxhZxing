@@ -16,13 +16,13 @@
 
 package com.google.zxing.client.android;
 
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.DecodeHintType;
-import com.google.zxing.Result;
-import com.google.zxing.ResultMetadataType;
-import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.camera.CameraManager;
 import com.google.zxing.client.android.clipboard.ClipboardInterface;
+import com.google.zxing.client.android.core.BarcodeFormat;
+import com.google.zxing.client.android.core.DecodeHintType;
+import com.google.zxing.client.android.core.Result;
+import com.google.zxing.client.android.core.ResultMetadataType;
+import com.google.zxing.client.android.core.ResultPoint;
 import com.google.zxing.client.android.history.HistoryActivity;
 import com.google.zxing.client.android.history.HistoryItem;
 import com.google.zxing.client.android.history.HistoryManager;

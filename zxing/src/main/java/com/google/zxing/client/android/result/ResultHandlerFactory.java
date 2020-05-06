@@ -16,10 +16,11 @@
 
 package com.google.zxing.client.android.result;
 
-import com.google.zxing.Result;
 import com.google.zxing.client.android.CaptureActivity;
-import com.google.zxing.client.result.ParsedResult;
-import com.google.zxing.client.result.ResultParser;
+import com.google.zxing.client.android.core.Result;
+import com.google.zxing.client.android.core.client.result.ParsedResult;
+import com.google.zxing.client.android.core.client.result.ResultParser;
+
 
 /**
  * Manufactures Android-specific handlers based on the barcode content's type.

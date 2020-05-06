@@ -16,10 +16,11 @@
 
 package com.google.zxing.client.android.result;
 
-import com.google.zxing.Result;
 import com.google.zxing.client.android.R;
-import com.google.zxing.client.result.ISBNParsedResult;
-import com.google.zxing.client.result.ParsedResult;
+import com.google.zxing.client.android.core.Result;
+import com.google.zxing.client.android.core.client.result.ISBNParsedResult;
+import com.google.zxing.client.android.core.client.result.ParsedResult;
+
 
 import android.app.Activity;
 

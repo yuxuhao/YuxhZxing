@@ -19,7 +19,8 @@ package com.google.zxing.client.android;
 import android.content.Intent;
 import android.net.Uri;
 
-import com.google.zxing.BarcodeFormat;
+
+import com.google.zxing.client.android.core.BarcodeFormat;
 
 import java.util.Arrays;
 import java.util.EnumSet;

@@ -18,8 +18,9 @@ package com.google.zxing.client.android.result;
 
 import com.google.zxing.client.android.LocaleManager;
 import com.google.zxing.client.android.R;
-import com.google.zxing.client.result.ParsedResult;
-import com.google.zxing.client.result.URIParsedResult;
+import com.google.zxing.client.android.core.client.result.ParsedResult;
+import com.google.zxing.client.android.core.client.result.URIParsedResult;
+
 
 import android.app.Activity;
 

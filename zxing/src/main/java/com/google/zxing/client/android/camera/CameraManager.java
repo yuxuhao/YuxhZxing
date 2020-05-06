@@ -24,9 +24,9 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
-import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.client.android.camera.open.OpenCamera;
 import com.google.zxing.client.android.camera.open.OpenCameraInterface;
+import com.google.zxing.client.android.core.PlanarYUVLuminanceSource;
 
 import java.io.IOException;
 

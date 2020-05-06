@@ -17,7 +17,8 @@
 package com.google.zxing.client.android;
 
 import android.net.Uri;
-import com.google.zxing.Result;
+
+import com.google.zxing.client.android.core.Result;
 import com.google.zxing.client.android.result.ResultHandler;
 
 import java.io.UnsupportedEncodingException;

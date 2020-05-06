@@ -17,8 +17,9 @@
 package com.google.zxing.client.android.result;
 
 import com.google.zxing.client.android.R;
-import com.google.zxing.client.result.ParsedResult;
-import com.google.zxing.client.result.TelParsedResult;
+import com.google.zxing.client.android.core.client.result.ParsedResult;
+import com.google.zxing.client.android.core.client.result.TelParsedResult;
+
 
 import android.app.Activity;
 
