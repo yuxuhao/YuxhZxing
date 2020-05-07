@@ -59,4 +59,17 @@
     <item>@string/preferences_front_light_auto</item>
     <item>@string/preferences_front_light_off</item>
   </string-array>
+  <declare-styleable name="scan_box_settings">
+    <attr name="box_width" format="integer"/>
+    <attr name="box_height" format="integer"/>
+    <attr name="box_custom_pattern" format="boolean"/>
+    <attr name="border_color" format="color"/>
+    <attr name="border_width" format="integer"/>
+    <attr name="right_angle_width" format="integer"/>
+    <attr name="right_angle_length" format="integer"/>
+    <attr name="right_angle_color" format="color"/>
+    <attr name="scan_line_color" format="color"/>
+    <attr name="capture_color" format="color"/>
+    <attr name="mask_color" format="color"/>
+  </declare-styleable>
 </resources>

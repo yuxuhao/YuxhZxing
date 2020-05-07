@@ -50,5 +50,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         but = (Button) findViewById(R.id.but);
         but.setOnClickListener(MainActivity.this);
+
     }
 }
