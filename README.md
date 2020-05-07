@@ -1,5 +1,26 @@
 # YuxhZxing
 
+``` 
+目前优化的地方有
+   减少编码格式目前只支持 条码格式 code128 、 EAN3 、二维码、三种格式
+   优化了只能识别扫描框内二维码提高解码速度
+   串行改为并行提高识别效率
+   
+   
+   	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+	
+	dependencies {
+	        implementation 'com.github.yuxuhao:YuxhZxing:V1.0'
+	}
+```
+
+
+
 ```
  <com.google.zxing.client.android.ViewfinderView
 
