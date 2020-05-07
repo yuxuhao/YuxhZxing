@@ -73,3 +73,21 @@
 | mask_color         | 除扫描框页面背景色                        |
 
 
+
+
+
+## 异常
+
+```
+ 如果抛出这个异常请检查自定义扫描框尺寸大小是不是超出屏幕尺寸
+ 
+ java.lang.IllegalArgumentException: Crop rectangle does not fit within image data.
+        at com.google.zxing.client.android.core.PlanarYUVLuminanceSource.<init>(PlanarYUVLuminanceSource.java:51)
+        at com.google.zxing.client.android.camera.CameraManager.buildLuminanceSource(CameraManager.java:336)
+        at com.google.zxing.client.android.DecodeHandler.decode(DecodeHandler.java:103)
+        at com.google.zxing.client.android.DecodeHandler.handleMessage(DecodeHandler.java:65)
+        at android.os.Handler.dispatchMessage(Handler.java:107)
+        at android.os.Looper.loop(Looper.java:213)
+        at com.google.zxing.client.android.DecodeThread.run(DecodeThread.java:115)
+```
+
